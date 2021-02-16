@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+
+<main class="container">
+  {% for latest in latests.all %}
+
+    <h2>{{latest.banner_title}}</h2>
+    <hr/>
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+    <img src="{{latest.banner_img.url }}" class="img-fluid" fit>
+    </div>
+    <p>{{latest.description | safe }}</p>
+
+
+    <div class="row">
+                    <div class="col-lg-8">
+                        <!-- Trending Top -->
+                        <div class="trending-top mb-30">
+                            <div class="trend-top-img">
+                                <img src="{{latest.small_img.url}}" alt="">
+
+                            </div>
+                        </div>
+                        </div>
+
+    <div class="col-md-4">
+       <div class="p-4 mb-3 bg-light rounded">
+         <p class="mb-0">{{latest.small_desc | safe }}</p>
+       </div>
+    </div><!-- /.row -->
+</div>
+  {% endfor %}
+
+</main><!-- /.container -->
+
+
+
+
+{% endblock %}

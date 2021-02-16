@@ -1,0 +1,68 @@
+
+{% extends 'base.html'%}
+{% load embed_video_tags %}
+
+{% block content %}
+
+{% load static %}
+
+<!doctype html>
+
+
+<main>
+
+
+
+
+
+  <!-- Marketing messaging and featurettes
+  ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container marketing">
+
+    <!-- Three columns of text below the carousel -->
+
+    <div class="row">
+        {% for trending in trendings.all %}
+      <div class="col-lg-4">
+        <h2>{{trending.title}}</h2>
+        <img class="img-fluid" src="{{ trending.picture.url }}" height=200 width=300/>
+        {{trending.description | safe}}
+        <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+      </div><!-- /.col-lg-4 -->
+      {% endfor %}
+
+    </div><!-- /.row -->
+    <!-- START THE FEATURETTES -->
+    <div class="youtube-area video-padding">
+         <div class="container">
+             <div class="row">
+                 <div class="col-12">
+                     <div class="video-items-active">
+                         <div class="video-items text-center">
+                             <iframe width="560" height="315" src="https://www.youtube.com/embed/JiuF-MQw2FM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+
+         </div>
+     </div>
+     <!-- End Start youtube -->
+
+
+
+
+
+    <!-- /END THE FEATURETTES -->
+
+  </div><!-- /.container -->
+
+
+
+
+
+
+
+{% endblock %}
